@@ -1,0 +1,43 @@
+<p>person-add-edit works!</p>
+<mat-card class="add-edit-card">
+  <mat-card-header>
+    <mat-card-title>
+      Add person
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="personForm" (ngSubmit) = "onSubmit()">
+      <div class = "form-group">
+        <div class = "form-row">
+          <mat-form-field>
+            <mat-label> Enter name</mat-label>
+            <input matInput formControlName="name"
+                   placeholder="enter name"/>
+          </mat-form-field>
+        </div>
+        <div class = "form-row">
+          <mat-form-field>
+            <mat-label> Enter age</mat-label>
+            <input matInput formControlName="age"
+                   placeholder="enter age"/>
+          </mat-form-field>
+        </div>
+        <div class = "form-row">
+          <mat-form-field>
+            <mat-label> Enter money</mat-label>
+            <input matInput formControlName="money"
+                   placeholder="enter money"/>
+          </mat-form-field>
+        </div>
+
+
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary"
+            (click)="onSubmit()" [disabled]="personForm.invalid">Submit</button>
+  </mat-card-actions>
+</mat-card>
+
+
