@@ -12,6 +12,7 @@ import SockJS from 'sockjs-client';
 export class MessagesComponent {
 
   stompClient:any = null;
+  count: number = 0;
 
   constructor() {
     // this.connect()
@@ -50,7 +51,10 @@ export class MessagesComponent {
     );
   };
 
-  sendMessage(msg: any) {
+  sendMessage(msg: String) {
+    this.count++;
+    let stringCount = "" + this.count;
+    // let msg:String ="message";
     if (msg.trim() !== "") {
       const message = {
         // senderId: currentUser.id,
@@ -59,7 +63,7 @@ export class MessagesComponent {
         // recipientName: activeContact.name,
         // content: msg,
         // timestamp: new Date(),
-        title: 'title1'
+        title: msg + stringCount
       };
 
       console.log("before seending")
